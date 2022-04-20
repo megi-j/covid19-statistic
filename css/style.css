@@ -1,0 +1,35 @@
+.container {
+    border: 2px solid red;
+    max-width: 600px;
+    width: 100%;
+    height: 100vh;
+    margin-left: 30%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.global {
+    text-align: center;
+    margin-top: 40%;
+    font-size: 25px;
+}
+#country, .button {
+    margin: 0 auto;
+}
+.private {
+    text-align: center;
+    margin-top: 20%;
+    font-size: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+} 
+.button {
+    display: none;
+}
+.block {
+    display: block;
+}
+.none {
+    display: none;
+}
