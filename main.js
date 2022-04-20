@@ -9,19 +9,19 @@ axios.get('https://covid-api.mmediagroup.fr/v1/cases').then((response)=>{
 //ვქმნი გლობალურ ინფორმაციას
     let globalConfirmed = document.querySelector('#confirmed');
     let confirmedInfo = allCountiesInfo.Global.All.confirmed;
-    globalConfirmed.innerHTML = "confirmed: " + confirmedInfo;
+    globalConfirmed.innerHTML = "Confirmed:  " + confirmedInfo;
 
     let GlobalDeaths = document.querySelector('#deaths');   
     let deathInfo = allCountiesInfo.Global.All.deaths;
-    GlobalDeaths.innerHTML = "death: " + deathInfo;
+    GlobalDeaths.innerHTML = "Death:  " + deathInfo;
 
     let globalPopulation = document.querySelector('#population');
     let populationInfo = allCountiesInfo.Global.All.population;
-    globalPopulation.innerHTML = "population: " + populationInfo;
+    globalPopulation.innerHTML = "Population:  " + populationInfo;
 
     let globalRecovered = document.querySelector('#recovered');
     let recoveredInfo = allCountiesInfo.Global.All.recovered;
-    globalRecovered.innerHTML = "recovered: " + recoveredInfo;
+    globalRecovered.innerHTML = "Recovered:  " + recoveredInfo;
     
     //ვაკეთებ ქვეყნების ჩამონათვალს select ისთვის
     let countryKeys = Object.keys(allCountiesInfo);
@@ -41,42 +41,50 @@ axios.get('https://covid-api.mmediagroup.fr/v1/cases').then((response)=>{
         buttonBox.classList.add ("block");
 
         let location = document.querySelector('#location');
-        location.innerHTML = "location: " + allCountiesInfo[this.value].All.location;
+        location.innerHTML = "Location:  " + allCountiesInfo[this.value].All.location;
         if(!allCountiesInfo[this.value].All.location){
             location.innerHTML = "";
         }
         
         
         let updated = document.querySelector('#updated');
-        updated.innerHTML = "updated: " + allCountiesInfo[this.value].All.updated;
-
+        updated.innerHTML = "Updated:  " + allCountiesInfo[this.value].All.updated;
+        if(!allCountiesInfo[this.value].All.updated){
+            updated.innerHTML = "";
+        }
 
         let confirm = document.querySelector('#confirm');
-        confirm.innerHTML = "confirmed: " + allCountiesInfo[this.value].All.confirmed;
-        
+        confirm.innerHTML = "Confirmed:  " + allCountiesInfo[this.value].All.confirmed;
+        if(!allCountiesInfo[this.value].All.confirmed){
+            confirm.innerHTML = "";
+        }
         
         let populationAmount = document.querySelector('#populationAmount');
-        populationAmount.innerHTML = "population: " + allCountiesInfo[this.value].All.population;
-        
+        populationAmount.innerHTML = "Population:  " + allCountiesInfo[this.value].All.population;
+        if(!allCountiesInfo[this.value].All.population){
+            populationAmount.innerHTML = "";
+        }
 
         let death = document.querySelector('#death');
-        death.innerHTML = "deaths: " + allCountiesInfo[this.value].All.deaths;
+        death.innerHTML = "Deaths:  " + allCountiesInfo[this.value].All.deaths;
         death.classList.add("none");
-        
+        if(!allCountiesInfo[this.value].All.deaths){
+            death.innerHTML = "";
+        }
         
         let lifeExpectancyAmount = document.querySelector('#lifeExpectancyAmount');
-        lifeExpectancyAmount.innerHTML = "lifeExpectancy: " + allCountiesInfo[this.value].All.life_expectancy;
+        lifeExpectancyAmount.innerHTML = "LifeExpectancy:  " + allCountiesInfo[this.value].All.life_expectancy;
         lifeExpectancyAmount.classList.add("none");
         
         let infectionRateAmount = document.querySelector('#infectionRateAmount');
         let confirmedAmount = allCountiesInfo[this.value].All.confirmed;
         let populationAll = allCountiesInfo[this.value].All.population;
-        infectionRateAmount.innerHTML = "infection-Rate: " + confirmedAmount/populationAll * 100;
+        infectionRateAmount.innerHTML = "Infection-Rate:  " + confirmedAmount/populationAll * 100;
         infectionRateAmount.classList.add("none");
         
         let deathRateAmount = document.querySelector('#deathRateAmount');
         let deathRateAll = allCountiesInfo[this.value].All.deaths;
-        deathRateAmount.innerHTML = "deathRate: " + deathRateAll/populationAll * 100;
+        deathRateAmount.innerHTML = "DeathRate:  " + deathRateAll/populationAll * 100;
         deathRateAmount.classList.add("none");
 
        
@@ -85,10 +93,17 @@ axios.get('https://covid-api.mmediagroup.fr/v1/cases').then((response)=>{
 // ღილაკზე დაკლიკვისას იფარება და იშლება მეტი ინფორმაცია
     let button = document.querySelector('button');
     button.addEventListener('click', function(){
+        if(button.innerHTML === "view less"){
+            button.innerHTML = "view more"
+        }else{
+            button.innerHTML = "view less"
+        }
+        
         death.classList.toggle('none');
         lifeExpectancyAmount.classList.toggle('none');
         infectionRateAmount.classList.toggle('none');
         deathRateAmount.classList.toggle('none');
+       
     });  
 
 })

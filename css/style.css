@@ -1,31 +1,46 @@
 .container {
-    border: 2px solid red;
-    max-width: 600px;
-    width: 100%;
     height: 100vh;
-    margin-left: 30%;
-    margin-top: 50px;
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    background-color: #FCE030;
 }
-.global {
-    text-align: center;
-    margin-top: 40%;
-    font-size: 25px;
+.global, .private {
+    margin: 100px auto;
+    font-size: calc(10px + 1vw); 
+    transition: all 2s;
+}
+.global p {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#country {
+    height: 30px;
+    border: 0;
+    background-color: #6FC4DA;
+    font-weight: bold;
+    font-size: calc(5px + 1vw);
+    
 }
 #country, .button {
-    margin: 0 auto;
+    margin: 20px auto;
 }
 .private {
-    text-align: center;
-    margin-top: 20%;
-    font-size: 25px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-} 
-.button {
+    height: 30%;
+}
+
+.button{
     display: none;
+    
+}
+.button button {
+    border: 0;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    /* margin-bottom: 30px; */
 }
 .block {
     display: block;
