@@ -98,7 +98,7 @@ axios.get('https://covid-api.mmediagroup.fr/v1/cases').then((response)=>{
             button.style.backgroundColor = "#fff";
         }else{
             button.innerHTML = "view less";
-            button.style.backgroundColor = "#13AAE3"
+            button.style.backgroundColor = "#6FC4DA"
         }
         
         death.classList.toggle('none');

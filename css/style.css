@@ -1,11 +1,13 @@
 .container {
-    height: 100vh;
     max-width: 1920px;
     width: 100%;
     margin: 0 auto;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #FCE030;
+    justify-content: space-between;
+    align-content: space-between;
+    background-color: #13AAE3;
 }
 .global, .private {
     margin: 100px auto;
@@ -14,13 +16,16 @@
 }
 .global p {
     margin-bottom: 20px;
-    font-weight: bold;
+    font-family: 'Bebas Neue';
+}
+.private p {
+    font-family: 'Bebas Neue';
 }
 #country {
     height: 30px;
     border: 0;
-    background-color: #6FC4DA;
-    font-weight: bold;
+    background-color: #FCE030;
+    font-family: 'Bebas Neue';
     font-size: calc(5px + 1vw);
     
 }
@@ -49,4 +54,9 @@
 }
 .none {
     display: none;
+}
+.ukraine {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
 }
